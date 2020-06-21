@@ -1,0 +1,118 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Account {
+    id: Int!
+    modules(pagination: PaginationQueryInput!): PaginatedResultOfModule!
+    nickname: String!
+    profilePicUrl: Url!
+    tokens: [AuthToken!]!
+}
+
+type AuthToken {
+    description: String!
+    id: Int!
+    token: String!
+}
+
+type Module {
+    author: Account!
+    description: String!
+    id: Int!
+    isCore: Boolean!
+    lastUpdatedDateTime: DateTime!
+    name: String!
+    publishedDateTime: DateTime!
+    replacements: [ModuleReplacement!]!
+    tags: [ModuleTag!]!
+}
+
+type ModuleReplacement {
+    id: Int!
+    link: Url
+    name: String!
+}
+
+type ModuleTag {
+    id: Int!
+    name: String!
+}
+
+type Mutation {
+    "Create a new module"
+    createModule(description: String!, isCore: Boolean!, name: String!, replacements: [ModuleReplacementInput!]!, token: String!): Module!
+    "Create a new token and return it's value"
+    createToken(description: String!): String!
+    "Delete a module"
+    deleteModule(id: Int!, token: String!): Boolean!
+    "Delete a token"
+    deleteToken(token: String): Boolean!
+    "Delete the current user"
+    deleteUser: Boolean!
+    login(email: String!, password: String!, remember: Boolean!): Account!
+    logout: Boolean!
+    register(email: String!, nickname: String!, password: String!): Account!
+    "Update a user"
+    updateUser(account: AccountInput!): Account!
+}
+
+type PaginatedResultOfModule {
+    pageNumber: Int!
+    pageSize: Int!
+    result: [Module]
+    totalPages: Int
+    totalRecords: Int
+}
+
+"Main entry point to retrieve data"
+type Query {
+    "Get the current logged in user"
+    me: Account!
+    module(id: Int!): Module!
+    recommend(dependencies: [JSDependencyInput!]!): [Module!]!
+    search(pagination: PaginationQueryInput!, query: String!, type: ModuleTypeEnum): PaginatedResultOfModule!
+    tags: [ModuleTag!]!
+    user(id: Int!): Account!
+}
+
+enum ModuleTypeEnum {
+    CONNECTOR
+    CORE
+}
+
+input AccountInput {
+    nickname: String!
+    profilePicUrl: String!
+}
+
+input JSDependencyInput {
+    "Dependency name"
+    name: String!
+}
+
+input ModuleReplacementInput {
+    link: Url
+    name: String!
+}
+
+input PaginationQueryInput {
+    "Return the total number of elements"
+    includeCount: Boolean!
+    "Current page"
+    pageNumber: Int!
+    "Size of the page, max size: 50"
+    pageSize: Int!
+}
+
+
+"The multiplier path scalar represents a valid GraphQL multiplier path string."
+scalar MultiplierPath
+
+scalar Url
+
+"The `DateTime` scalar represents an ISO-8601 compliant date time type."
+scalar DateTime

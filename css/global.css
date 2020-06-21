@@ -1,0 +1,70 @@
+body {
+  font-family: 'Merriweather', serif;
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  max-width: 100%
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: #004e98;
+}
+
+button {
+  font-weight: normal !important;
+}
+
+input {
+  border-radius: 0 !important;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  max-width: 100%;
+  width: 100%;
+}
+
+thead {
+  display: table-header-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+th {
+  text-align: left;
+  font-weight: 700;
+  vertical-align: bottom;
+}
+td, th {
+  padding: .5em 0;
+  line-height: inherit;
+}
+td, th {
+  border-bottom: 1px solid rgba(0,0,0,.0625);
+}
+
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+:not(pre) > code {
+  border: 1px solid #aaa;
+  border-radius: 2px;
+  padding: 1px 3px;
+  background-color: #f5f2f0;
+}

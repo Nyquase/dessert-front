@@ -1,0 +1,9 @@
+{
+  "build": {
+    "env": {
+      "DESSERT_GRAPHQL_URL": "@dessert_graphql_url",
+      "DESSERT_GHOST_URL": "@dessert_ghost_url",
+      "DESSERT_GHOST_KEY": "@dessert_ghost_key"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+.blogpost figure {
+  margin-top: 30px;
+  text-align: center;
+  overflow: auto;
+}
+
+.blogpost img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.blogpost figcaption {
+  text-align: center;
+  margin-top: 5px;
+  font-style: italic;
+  color: #444;
+}
+
+.blogpost pre {
+  border: 1px solid #aaa;
+}
+
+.blogpost h2 {
+  margin-top: 40px;
+  font-weight: normal;
+}
+
+.blogpost-content p {
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.blogpost-content ul {
+  font-size: 18px;
+  line-height: 28px;
+}
